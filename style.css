@@ -1,0 +1,106 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Profile section */
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: nowrap;
+}
+.profile-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #000;
+  margin-right: 16px;
+}
+.profile-info {
+  flex: 1;
+  min-width: 0;
+}
+.profile-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.profile-header {
+  font-size: 0.95rem;
+  font-weight: 300;
+  margin-bottom: 3px;
+}
+
+/* Social icons */
+.social-icons {
+  margin-top: 4px;
+}
+.social-icons a {
+  margin-right: 6px;
+}
+.social-icons img {
+  height: 22px;
+  transition: transform 0.2s ease;
+}
+.social-icons a:hover img {
+  transform: scale(1.2);
+}
+
+/* Intro section */
+.intro h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.intro p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+/* Resume button */
+.resume-button {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.resume-button:hover {
+  background: #222;
+  transform: scale(1.05);
+}
+
+/* Responsive tweaks */
+@media (max-width: 420px) {
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
