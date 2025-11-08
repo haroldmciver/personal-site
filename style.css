@@ -11,15 +11,14 @@ body {
   background: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
-  padding: 20px;
+  padding: 24px 20px 20px;
 }
 
 .container {
   width: 100%;
   max-width: 420px;
-  margin-top: 20px;
 }
 
 /* Profile section */
@@ -31,7 +30,7 @@ body {
 }
 .profile-image {
   width: 180px;
-  height: 180px;
+  height: 10px;
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid #000;
@@ -69,7 +68,7 @@ body {
 
 /* Intro section */
 .intro {
-  margin-top: 40px;
+  margin-top: 12px;
 }
 .intro h2 {
   font-size: 1.4rem;
