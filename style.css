@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,400&display=swap");
+
 /* Reset */
 * {
   margin: 0;
@@ -5,21 +7,27 @@
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #000;
   background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   min-height: 100vh;
-  margin-top: 40px;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
 }
 
 .container {
-  width: 100%;
+  width: min(100%, 420px);
   max-width: 420px;
-  margin-top: 100px;
+  margin: 0;
 }
 
 /* Profile section */
@@ -61,10 +69,15 @@ body {
 }
 .social-icons img {
   height: 22px;
+  width: auto;
+  vertical-align: middle;
   transition: transform 0.2s ease;
 }
 .social-icons a:hover img {
   transform: scale(1.2);
+}
+.social-icons img.gallery-icon {
+  height: 26px;
 }
 
 /* Intro section */
@@ -103,12 +116,115 @@ body {
 /* Responsive tweaks */
 @media (max-width: 480px) {
   body {
-    padding: 0 16px;
+    padding: 24px 16px;
   }
   .profile-image {
     width: 100px;
     height: 100px;
   }
 }
+
+/* Gallery page */
+body.gallery-page {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.gallery-container {
+  width: 100%;
+  max-width: min(720px, 100%);
+  margin: 0 auto;
+}
+
+.gallery-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+  width: 100%;
+}
+
+.gallery-pair {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px 20px;
+  width: 100%;
+}
+
+.gallery-pair .gallery-row {
+  flex: 1 1 calc(50% - 10px);
+  min-width: min(100%, 240px);
+  max-width: 100%;
+}
+
+.gallery-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Shrink-wraps to image width so caption aligns to the photo’s right edge */
+.gallery-row__frame {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.gallery-pair .gallery-row__frame {
+  width: 100%;
+}
+
+.gallery-row__media {
+  display: block;
+}
+
+.gallery-row__media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(58dvh, 480px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-pair .gallery-row__media img {
+  max-height: min(68dvh, 580px);
+}
+
+.gallery-row__caption {
+  margin-top: 10px;
+  text-align: right;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Bodoni 72", "Bodoni Moda", "Bodoni MT", Didot, Georgia, serif;
+  font-style: italic;
+}
+
+.gallery-row__title {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #111;
+}
+
+.gallery-row__date {
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #666;
+  margin-top: 2px;
+}
+
 
 
