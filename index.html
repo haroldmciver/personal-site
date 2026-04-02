@@ -9,6 +9,7 @@
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="poke.webp" type="image/webp">
+  <link rel="prefetch" href="/gallery/" as="document">
 </head>
 <body>
   <main class="container">
@@ -30,5 +31,56 @@
       </div>
     </section>
   </main>
+  <script>
+    (function () {
+      var galleryImages = [
+        "/gallery/lausanne3-12-26.jpg",
+        "/gallery/Oeschinenlake3-9-26.JPG",
+        "/gallery/jeizenin,swiss3-13-26.JPG",
+        "/gallery/kyoto2-8-26.JPG",
+        "/gallery/brycecanyon1-6-25.JPG",
+        "/gallery/visp3-17-26.JPG",
+        "/gallery/grandcanyon1-3-25.JPG",
+        "/gallery/france11-2-25.JPG",
+        "/gallery/estes3-14-24.JPG",
+        "/gallery/cherry3-18-25.JPG",
+        "/gallery/iwatake.jpg",
+        "/gallery/hakuba.jpg",
+        "/gallery/gampel3-20-26.JPG",
+        "/gallery/deathvalley9-24-22.jpeg",
+        "/gallery/andromeda11-13-2025.jpg"
+      ];
+
+      function preloadGalleryImages() {
+        var nextIndex = 0;
+        var maxConcurrent = 2;
+
+        function queueNext() {
+          if (nextIndex >= galleryImages.length) return;
+          var img = new Image();
+          img.decoding = "async";
+          img.src = galleryImages[nextIndex];
+          nextIndex += 1;
+          img.onload = queueNext;
+          img.onerror = queueNext;
+        }
+
+        for (var i = 0; i < maxConcurrent; i += 1) {
+          queueNext();
+        }
+      }
+
+      function startWarmup() {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(preloadGalleryImages, { timeout: 1200 });
+        } else {
+          setTimeout(preloadGalleryImages, 600);
+        }
+      }
+
+      if (document.readyState === "complete") startWarmup();
+      else window.addEventListener("load", startWarmup, { once: true });
+    })();
+  </script>
 </body>
 </html>
